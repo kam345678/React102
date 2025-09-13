@@ -13,16 +13,15 @@ export default function CourseDrop() {
   };
 
   return (
-    <div className="bg-gray-900 text-gray-100 min-h-screen p-6">
-      <h2 className="text-2xl font-bold mb-4"> ถอนรายวิชาที่ลงทะเบียน</h2>
-      
-      <div className="mb-6">
+    <div>
+      <h2>ถอนรายวิชาที่ลงทะเบียน</h2>
+      <div>
         {courseList.length === 0 ? (
-          <p className="text-gray-400">ยังไม่มีรายวิชาที่ลงทะเบียน</p>
+          <p>ยังไม่มีรายวิชาที่ลงทะเบียน</p>
         ) : (
-          <ul className="space-y-2">
+          <ul>
             {courseList.map((c, i) => (
-              <li key={i} className="flex justify-between items-center bg-gray-800 p-3 rounded-lg">
+              <li key={i} >
                 <span>{c.subjectCode} - {c.subjectNameTh}</span>
                 <DropButton index={i} onDrop={handleDrop} />
               </li>
@@ -31,13 +30,13 @@ export default function CourseDrop() {
         )}
       </div>
 
-      <h2 className="text-2xl font-bold mb-4 ">📉 รายวิชาที่ถอน</h2>
+      <h2>รายวิชาที่ถอน</h2>
       {droppedCourses.length === 0 ? (
-        <p className="text-gray-400">ยังไม่มีรายวิชาที่ถอน</p>
+        <p>ยังไม่มีรายวิชาที่ถอน</p>
       ) : (
-        <ul className="space-y-2">
+        <ul>
           {droppedCourses.map((c, i) => (
-            <li key={i} className="flex justify-between items-center bg-gray-800 p-3 rounded-lg">
+            <li key={i} >
               <span>{c.subjectCode} - {c.subjectNameTh} ({c.credit} หน่วยกิต) | อ. {c.teacherName} | เกรด: {c.grade}</span>
             </li>
           ))}
